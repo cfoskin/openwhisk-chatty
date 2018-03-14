@@ -49,7 +49,7 @@ function main() {
 
 Then deploy the action:
 
-`./wsk action create hello hello.js -i`. This should succeed. For any further update you can also use `update`: `./wsk action update hello hello.js`.
+`./wsk action create hello hello.js -i`. This should succeed. For any further update you can also use `update`: `./wsk action update hello hello.js -i`.
 
 ### Invoking the action:
 
@@ -84,7 +84,7 @@ $ ./wsk property get --auth -i
 Set up the `AUTH` env var: 
 
 ```sh
-$ export AUTH=`./wsk property get --auth`
+$ export AUTH=`./wsk property get --auth -i`
 ```
 
 Then just use curl to call e.g. the `hello` action:

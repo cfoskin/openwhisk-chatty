@@ -81,7 +81,11 @@ $ ./wsk property get --auth -i
 
 ## Using the REST API to invoke an action
 
-Set up the `AUTH` env var: `export AUTH=`./wsk property get --auth`
+Set up the `AUTH` env var: 
+
+```sh
+$ export AUTH=`./wsk property get --auth`
+```
 
 Then just use curl to call e.g. the `hello` action:
 

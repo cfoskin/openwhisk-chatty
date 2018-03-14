@@ -79,6 +79,16 @@ By default OpenWhisk uses just a generated username and password. When you want 
 $ ./wsk property get --auth -i
 ```
 
+## Using the REST API to invoke an action
+
+Set up the `AUTH` env var: `export AUTH=`./wsk property get --auth`
+
+Then just use curl to call e.g. the `hello` action:
+
+`curl -u $AUTH https://openwhisk-openwhisk.127.0.0.1.nip.io/api/v1/namespaces/_/actions/hello -X POST --insecure`
+
+(Adapt to URL to your actual OpenWhisk installation)
+
 ## Other noteworthy things:
 
 Openwhisk has SKDs for [iOS](https://github.com/apache/incubator-openwhisk-client-swift), [JavaScript](https://github.com/apache/incubator-openwhisk-client-js) and [Golang](https://github.com/apache/incubator-openwhisk-client-go).

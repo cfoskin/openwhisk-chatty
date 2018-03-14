@@ -1,6 +1,14 @@
 Setting up Apache OpenWhisk
 ===========================
 
+## What is OpenWhisk?
+
+It's a `Function-as-a-Service` platform, somewhat similar to AWS Lambda, but you can host it on your own Hardware. It allows you to not think about whole backend projects and infrastructure and only deploy single functions/units of work called `actions`.
+
+In addition to `actions` OpenWhisk adds the concepts of `events`, `triggers` and `feeds`. `Events` come from outside sources and can call triggers which then lead to the invokation of one or multiple actions. Note that you don't need triggers, you can always just invoke actions directly (which is what we're doing in this doc).
+
+`Feeds` are (as far as i understand) an abstraction of those outside sources of events: you can configure a feed implementation (WebSocket, Webhook, ...) that acts as a source of events.
+
 ## Deploying to Openshift
 
 Our goal is to run OpenWhisk on a local Openshift cluster (oc cluster up). The projectodd team has a template for this in their [repository](https://github.com/projectodd/openwhisk-openshift). Make sure your local cluster is running and the `oc` cli is  functional. Clone the repository. Before running it, there is one change that we should make: it turned out that the memory settings for the controller were not sufficient. It would accept small actions but crash when a zip file with some bundled dependencies was submitted. Edit this line: https://github.com/projectodd/openwhisk-openshift/blob/master/template.yml#L29

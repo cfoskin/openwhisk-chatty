@@ -84,7 +84,7 @@ $ ./wsk property get --auth -i
 Set up the `AUTH` env var: 
 
 ```sh
-$ export AUTH=`./wsk property get --auth -i`
+$ export AUTH=`./wsk property get --auth -i | awk '{ print $3; }'`
 ```
 
 Then just use curl to call e.g. the `hello` action:
